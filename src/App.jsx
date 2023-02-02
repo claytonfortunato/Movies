@@ -1,8 +1,11 @@
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <div className="App">
+    <>
+      <Navbar />
       <h1>AOBA!</h1>
-    </div>
+    </>
   );
 }
 
