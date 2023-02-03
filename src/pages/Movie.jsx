@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { json } from "react-router-dom";
 
 const Movie = () => {
   const [movie, setMovie] = useState([]);
@@ -10,12 +9,22 @@ const Movie = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setMovie();
       });
   });
 
-  return <div>Movie</div>;
+  return (
+    <div>
+      Movie
+      <div>
+        {" "}
+        {movie &&
+          movie.map((movie) => {
+            <div> {movie.title} </div>;
+          })}
+      </div>
+    </div>
+  );
 };
 
 export default Movie;
