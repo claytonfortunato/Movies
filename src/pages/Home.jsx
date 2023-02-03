@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h2>Melhores filmes</h2>
+      <h1>Melhores filmes</h1>
       <div className="container-movies">
         {topRated.map((movie) => (
           <MovieCard
