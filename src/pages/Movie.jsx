@@ -1,28 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-const Movie = () => {
-  const [movie, setMovie] = useState([]);
+const API_IMG = "https://image.tmdb.org/t/p/w500";
 
-  useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/movie/550?api_key=d899c202d848bc9981b4e775e2dfb764"
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setMovie();
-      });
-  });
+import "./Movie.scss";
 
+const Movie = ({ poster, title, vote }) => {
   return (
-    <div>
-      Movie
-      <div>
-        {" "}
-        {movie &&
-          movie.map((movie) => {
-            <div> {movie.title} </div>;
-          })}
-      </div>
+    <div className="container-movie">
+      <h4>{title}</h4>
+
+      <img src={API_IMG + poster} alt="" />
+      <p>{vote}</p>
     </div>
   );
 };
