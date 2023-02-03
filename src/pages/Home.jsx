@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Movie from "./Movie";
+import MovieCard from "../components/MovieCard";
 
 const API_URL =
   "https://api.themoviedb.org/3/movie/top_rated?api_key=d899c202d848bc9981b4e775e2dfb764&language=pt-BR";
+
+import "./Home.scss";
 
 const Home = () => {
   const [topRated, setTopRated] = useState([]);
@@ -18,14 +20,17 @@ const Home = () => {
 
   return (
     <div className="container">
-      {topRated.map((movie) => (
-        <Movie
-          image={movie.id}
-          poster={movie.poster_path}
-          title={movie.title}
-          vote={movie.vote_average}
-        />
-      ))}
+      <h2>Melhores filmes</h2>
+      <div className="container-movies">
+        {topRated.map((movie) => (
+          <MovieCard
+            image={movie.id}
+            poster={movie.poster_path}
+            title={movie.title}
+            vote={movie.vote_average}
+          />
+        ))}
+      </div>
     </div>
   );
 };
