@@ -4,18 +4,17 @@ import Details from "../components/Details";
 
 import MovieCard from "../components/MovieCard";
 
-const API_URL =
-  "https://api.themoviedb.org/3/movie/?api_key=d899c202d848bc9981b4e775e2dfb764&language=pt-BR";
+const API_IMG = "https://image.tmdb.org/t/p/w500";
 
-const MovieDetails = () => {
+const MovieDetails = (image) => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
 
-  const getMovie = async () => {
-    const res = await fetch(API_URL);
+  const getMovie = async (url) => {
+    const res = await fetch(url);
     const data = await res.json();
     console.log(data);
-    setMovie(data.results);
+    setMovie(data);
   };
 
   useEffect(() => {
@@ -27,8 +26,10 @@ const MovieDetails = () => {
     <div className="movie-details">
       {movie && (
         <>
-          <Details title={movie.title} />
-          <p className="tagline">{movie.title}</p>
+          <MovieCard image={image} title={movie.title} />
+          <p className="tagline">{movie.tagline}</p>
+          <p>{movie.runtime} minutos</p>
+          <p>{movie.overview} </p>
         </>
       )}
     </div>

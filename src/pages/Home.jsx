@@ -28,6 +28,7 @@ const Home = () => {
             poster={movie.poster_path}
             title={movie.title}
             vote={movie.vote_average}
+            id={movie.id}
           />
         ))}
       </div>

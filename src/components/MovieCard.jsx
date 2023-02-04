@@ -7,7 +7,7 @@ const API_IMG = "https://image.tmdb.org/t/p/w500";
 
 import "./MovieCard.scss";
 
-const Movie = ({ poster, title, vote }) => {
+const Movie = ({ poster, title, vote, id }) => {
   return (
     <div className="container-movie">
       <h4>{title}</h4>
@@ -15,7 +15,7 @@ const Movie = ({ poster, title, vote }) => {
       <p>
         <FaStar color="yellow" /> {vote}
       </p>
-      <Link to="movie/:id">
+      <Link to={`/movie/${id}`}>
         <button className="btn-details">Detalhes</button>
       </Link>
     </div>

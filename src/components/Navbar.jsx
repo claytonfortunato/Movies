@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { MdLocalMovies } from "react-icons/md";
 import { BsSearch } from "react-icons/bs";
@@ -10,7 +11,9 @@ const Navbar = () => {
     <nav className="nav">
       <div className="nav-logo">
         <MdLocalMovies size={40} color="#94E4EB" />
-        <h4>Movies</h4>
+        <Link to="/">
+          <h4>Movies</h4>
+        </Link>
       </div>
 
       <form className="nav-search">
