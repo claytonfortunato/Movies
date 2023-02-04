@@ -13,7 +13,6 @@ const Home = () => {
     fetch(API_URL)
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
         setTopRated(data.results);
       });
   }, []);
@@ -24,6 +23,7 @@ const Home = () => {
       <div className="container-movies">
         {topRated.map((movie) => (
           <MovieCard
+            key={movie.id}
             image={movie.id}
             poster={movie.poster_path}
             title={movie.title}

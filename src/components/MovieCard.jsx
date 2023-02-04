@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
 
@@ -14,7 +15,9 @@ const Movie = ({ poster, title, vote }) => {
       <p>
         <FaStar color="yellow" /> {vote}
       </p>
-      <button className="btn-details">Detalhes</button>
+      <Link to="movie/:id">
+        <button className="btn-details">Detalhes</button>
+      </Link>
     </div>
   );
 };
