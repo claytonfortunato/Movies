@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 
-const API_SEARCH =
-  "https://api.themoviedb.org/3/search/movie?api_key=<<api_key_here>>&query";
-const Key = "d899c202d848bc9981b4e775e2dfb764";
+import "./Search.scss";
 
 const Search = () => {
   const [searchParams] = useSearchParams();
@@ -19,16 +17,16 @@ const Search = () => {
   };
 
   useEffect(() => {
-    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=d899c202d848bc9981b4e775e2dfb764&query=${query}`;
+    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=d899c202d848bc9981b4e775e2dfb764&query=${query}&language=pt-BR`;
     getSearchedMovies(searchUrl);
   }, [query]);
 
   return (
-    <div className="container">
+    <div className="container__search">
       <h2 className="title">
         Resultados para: <span className="query-text">{query}</span>
       </h2>
-      <div className="movies-container">
+      <div className="container__search__card">
         {movies.length > 0 &&
           movies.map((movieReq) => (
             <MovieCard key={movieReq.id} movie={movieReq} />
