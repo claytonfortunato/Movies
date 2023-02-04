@@ -23,12 +23,14 @@ const Home = () => {
       <div className="container-movies">
         {topRated.map((movie) => (
           <MovieCard
+            // key={movie.id}
+            // image={movie.id}
+            // poster={movie.poster_path}
+            // title={movie.title}
+            // vote={movie.vote_average}
+            // id={movie.id}
             key={movie.id}
-            image={movie.id}
-            poster={movie.poster_path}
-            title={movie.title}
-            vote={movie.vote_average}
-            id={movie.id}
+            movie={movie}
           />
         ))}
       </div>

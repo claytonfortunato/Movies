@@ -16,7 +16,6 @@ const MovieDetails = () => {
   const getMovie = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
     setMovie(data);
   };
 
@@ -37,7 +36,7 @@ const MovieDetails = () => {
       {movie && (
         <>
           <h1>{movie.title}</h1>
-          <img src={API_IMG + movie.backdrop_path} alt="" />
+          <img src={API_IMG + movie.poster_path} alt="" />
           <p className="tagline">{movie.tagline}</p>
           <div className="details">
             <div className="budget">
