@@ -20,6 +20,13 @@ const MovieDetails = () => {
     setMovie(data);
   };
 
+  const formatValor = (number) => {
+    return number.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+  };
+
   useEffect(() => {
     const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=d899c202d848bc9981b4e775e2dfb764&language=pt-BR`;
     getMovie(movieUrl);
@@ -35,32 +42,32 @@ const MovieDetails = () => {
           <div className="details">
             <div className="budget">
               <h4>
-                <FaWallet color="94e4eb" size={20} /> Orçamento:
+                <FaWallet color="94e4eb" size={20} /> Orçamento
               </h4>
-              <p>${movie.budget} </p>
+              <p>{formatValor(movie.budget)}</p>
             </div>
             <div className="revenue">
               <h4>
-                <BsGraphUp color="94e4eb" size={20} /> Receita:
+                <BsGraphUp color="94e4eb" size={20} /> Receita
               </h4>
-              <p>${movie.revenue}</p>
+              <p>{formatValor(movie.revenue)}</p>
             </div>
             <div className="runtime">
               <h4>
-                <BsHourglassSplit color="94e4eb" size={20} /> Duração:
+                <BsHourglassSplit color="94e4eb" size={20} /> Duração
               </h4>
               <p>{movie.runtime} Minutos</p>
             </div>
             <div className="vote">
               <h4>
-                <FaStar color="94e4eb" size={20} /> Media:
+                <FaStar color="94e4eb" size={20} /> Media
               </h4>
               <p>{movie.vote_average}</p>
             </div>
           </div>
           <div className="description">
             <h4>
-              <MdDescription color="94e4eb" size={20} /> Descrição:
+              <MdDescription color="94e4eb" size={20} /> Descrição
             </h4>
             <p>{movie.overview} </p>
           </div>
